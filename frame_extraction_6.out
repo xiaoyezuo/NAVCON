@@ -1,0 +1,227 @@
+usage: conda [-h] [--no-plugins] [-V] COMMAND ...
+conda: error: argument COMMAND: invalid choice: 'activate' (choose from 'clean', 'compare', 'config', 'create', 'info', 'init', 'install', 'list', 'notices', 'package', 'remove', 'uninstall', 'rename', 'run', 'search', 'update', 'upgrade', 'build', 'convert', 'debug', 'develop', 'doctor', 'index', 'inspect', 'metapackage', 'render', 'skeleton', 'token', 'pack', 'server', 'env', 'verify', 'content-trust', 'repo')
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I0928 06:27:09.991914 950488 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : default changed to proposed JSON configuration filename : default.scene_dataset_config.json
+I0928 06:27:09.992372 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Dataset) : Proposing JSON name : default.scene_dataset_config.json from original name : default | This file  does not exist.
+I0928 06:27:09.992585 950488 AssetAttributesManager.cpp:117] Asset attributes (capsule3DSolid : capsule3DSolid_hemiRings_4_cylRings_1_segments_12_halfLen_0.75_useTexCoords_false_useTangents_false) created and registered.
+I0928 06:27:09.992700 950488 AssetAttributesManager.cpp:117] Asset attributes (capsule3DWireframe : capsule3DWireframe_hemiRings_8_cylRings_1_segments_16_halfLen_1) created and registered.
+I0928 06:27:09.992813 950488 AssetAttributesManager.cpp:117] Asset attributes (coneSolid : coneSolid_segments_12_halfLen_1.25_rings_1_useTexCoords_false_useTangents_false_capEnd_true) created and registered.
+I0928 06:27:09.992884 950488 AssetAttributesManager.cpp:117] Asset attributes (coneWireframe : coneWireframe_segments_32_halfLen_1.25) created and registered.
+I0928 06:27:09.992930 950488 AssetAttributesManager.cpp:117] Asset attributes (cubeSolid : cubeSolid) created and registered.
+I0928 06:27:09.992959 950488 AssetAttributesManager.cpp:117] Asset attributes (cubeWireframe : cubeWireframe) created and registered.
+I0928 06:27:09.993052 950488 AssetAttributesManager.cpp:117] Asset attributes (cylinderSolid : cylinderSolid_rings_1_segments_12_halfLen_1_useTexCoords_false_useTangents_false_capEnds_true) created and registered.
+I0928 06:27:09.993088 950488 AssetAttributesManager.cpp:117] Asset attributes (cylinderWireframe : cylinderWireframe_rings_1_segments_32_halfLen_1) created and registered.
+I0928 06:27:09.993098 950488 AssetAttributesManager.cpp:117] Asset attributes (icosphereSolid : icosphereSolid_subdivs_1) created and registered.
+I0928 06:27:09.993106 950488 AssetAttributesManager.cpp:117] Asset attributes (icosphereWireframe : icosphereWireframe_subdivs_1) created and registered.
+I0928 06:27:09.993119 950488 AssetAttributesManager.cpp:117] Asset attributes (uvSphereSolid : uvSphereSolid_rings_8_segments_16_useTexCoords_false_useTangents_false) created and registered.
+I0928 06:27:09.993132 950488 AssetAttributesManager.cpp:117] Asset attributes (uvSphereWireframe : uvSphereWireframe_rings_16_segments_32) created and registered.
+I0928 06:27:09.993137 950488 AssetAttributesManager.cpp:105] AssetAttributesManager::buildCtorFuncPtrMaps : Built default primitive asset templates : 12
+I0928 06:27:09.994341 950488 SceneDatasetAttributesManager.cpp:23] File (default) not found, so new default dataset attributes created and registered.
+I0928 06:27:09.994360 950488 MetadataMediator.cpp:47] MetadataMediator::createDataset : Dataset default successfully created.
+I0928 06:27:09.999832 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0928 06:27:09.999857 950488 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0928 06:27:09.999862 950488 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : NONE
+I0928 06:27:09.999871 950488 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : NONE changed to proposed JSON configuration filename : NONE.stage_config.json
+I0928 06:27:09.999979 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : NONE.stage_config.json from original name : NONE | This file  does not exist.
+I0928 06:27:10.000036 950488 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : NONE
+I0928 06:27:10.000038 950488 AbstractObjectAttributesManagerBase.h:188] File (NONE) not found, so new default Stage attributes created and registered.
+W0928 06:27:10.000046 950488 Simulator.cpp:160] Navmesh file not found, checked at 
+I0928 06:27:10.000744 950488 SceneGraph.h:93] Created DrawableGroup: 
+Renderer: NVIDIA GeForce RTX 2080 Ti/PCIe/SSE2 by NVIDIA Corporation
+OpenGL version: 4.6.0 NVIDIA 525.60.13
+Using optional features:
+    GL_ARB_ES2_compatibility
+    GL_ARB_direct_state_access
+    GL_ARB_get_texture_sub_image
+    GL_ARB_invalidate_subdata
+    GL_ARB_multi_bind
+    GL_ARB_robustness
+    GL_ARB_separate_shader_objects
+    GL_ARB_texture_filter_anisotropic
+    GL_ARB_texture_storage
+    GL_ARB_texture_storage_multisample
+    GL_ARB_vertex_array_object
+    GL_KHR_debug
+Using driver workarounds:
+    no-forward-compatible-core-context
+    nv-egl-incorrect-gl11-function-pointers
+    no-layout-qualifiers-on-old-glsl
+    nv-zero-context-profile-mask
+    nv-implementation-color-read-format-dsa-broken
+    nv-cubemap-inconsistent-compressed-image-size
+    nv-cubemap-broken-full-compressed-image-query
+    nv-compressed-block-size-in-bits
+W0928 06:27:10.172657 950488 ResourceManager.cpp:228] ResourceManager::loadStage : Not loading semantic mesh - File Name : NONE_semantic.ply does not exist.
+I0928 06:27:10.172670 950488 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset NONE.
+I0928 06:27:10.172672 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage NONE 
+I0928 06:27:10.172674 950488 ResourceManager.cpp:607] ResourceManager::loadStageInternal : Loading empty scene for NONE
+W0928 06:27:10.173675 950488 simulator.py:215] Could not find navmesh NONE.navmesh, no collision checking will be done
+I0928 06:27:19.078289 950488 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0928 06:27:19.078330 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0928 06:27:19.078378 950488 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0928 06:27:19.078388 950488 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/uNb9QFRL6hY/uNb9QFRL6hY.glb
+I0928 06:27:19.078397 950488 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : /home/zuoxy/ceph_old/data/mp3d/uNb9QFRL6hY/uNb9QFRL6hY.glb changed to proposed JSON configuration filename : /home/zuoxy/ceph_old/data/mp3d/uNb9QFRL6hY/uNb9QFRL6hY.stage_config.json
+I0928 06:27:19.078753 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : /home/zuoxy/ceph_old/data/mp3d/uNb9QFRL6hY/uNb9QFRL6hY.stage_config.json from original name : /home/zuoxy/ceph_old/data/mp3d/uNb9QFRL6hY/uNb9QFRL6hY.glb | This file  does not exist.
+I0928 06:27:19.079386 950488 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/uNb9QFRL6hY/uNb9QFRL6hY.glb
+I0928 06:27:19.079396 950488 AbstractObjectAttributesManagerBase.h:188] File (/home/zuoxy/ceph_old/data/mp3d/uNb9QFRL6hY/uNb9QFRL6hY.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0928 06:27:19.079417 950488 Simulator.cpp:156] Loading navmesh from /home/zuoxy/ceph_old/data/mp3d/uNb9QFRL6hY/uNb9QFRL6hY.navmesh
+I0928 06:27:19.082916 950488 Simulator.cpp:158] Loaded.
+I0928 06:27:19.082927 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:27:19.082935 950488 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0928 06:27:19.083348 950488 ResourceManager.cpp:193] ResourceManager::loadStage : Loading Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/uNb9QFRL6hY/uNb9QFRL6hY_semantic.ply
+I0928 06:27:19.083352 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:27:19.083355 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/uNb9QFRL6hY/uNb9QFRL6hY_semantic.ply 
+I0928 06:27:35.053122 950488 ResourceManager.cpp:224] ResourceManager::loadStage : Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/uNb9QFRL6hY/uNb9QFRL6hY_semantic.ply loaded.
+I0928 06:27:35.063266 950488 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset /home/zuoxy/ceph_old/data/mp3d/uNb9QFRL6hY/uNb9QFRL6hY.glb.
+I0928 06:27:35.063288 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/uNb9QFRL6hY/uNb9QFRL6hY.glb 
+I0928 06:27:35.063349 950488 ResourceManager.cpp:1119] Importing Basis files as BC7 for uNb9QFRL6hY.glb
+I0928 06:27:42.000826 950488 SemanticScene.h:41] Deconstructing SemanticScene
+I0928 06:27:42.159620 950488 simulator.py:213] Loaded navmesh /home/zuoxy/ceph_old/data/mp3d/uNb9QFRL6hY/uNb9QFRL6hY.navmesh
+I0928 06:28:14.445641 950488 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0928 06:28:14.445996 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0928 06:28:14.446076 950488 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0928 06:28:14.446090 950488 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.glb
+I0928 06:28:14.446105 950488 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.glb changed to proposed JSON configuration filename : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.stage_config.json
+I0928 06:28:14.446264 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.stage_config.json from original name : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.glb | This file  does not exist.
+I0928 06:28:14.446689 950488 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.glb
+I0928 06:28:14.446692 950488 AbstractObjectAttributesManagerBase.h:188] File (/home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0928 06:28:14.446851 950488 Simulator.cpp:156] Loading navmesh from /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.navmesh
+I0928 06:28:14.449993 950488 Simulator.cpp:158] Loaded.
+I0928 06:28:14.450004 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:28:14.450011 950488 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0928 06:28:14.450392 950488 ResourceManager.cpp:193] ResourceManager::loadStage : Loading Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs_semantic.ply
+I0928 06:28:14.450397 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:28:14.450399 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs_semantic.ply 
+I0928 06:28:44.452522 950488 ResourceManager.cpp:224] ResourceManager::loadStage : Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs_semantic.ply loaded.
+I0928 06:28:44.452548 950488 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.glb.
+I0928 06:28:44.452550 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.glb 
+I0928 06:28:44.453567 950488 ResourceManager.cpp:1119] Importing Basis files as BC7 for B6ByNegPMKs.glb
+I0928 06:28:59.534401 950488 SemanticScene.h:41] Deconstructing SemanticScene
+I0928 06:28:59.807231 950488 simulator.py:213] Loaded navmesh /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.navmesh
+I0928 06:29:19.882287 950488 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0928 06:29:19.882719 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0928 06:29:19.882798 950488 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0928 06:29:19.882813 950488 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/gTV8FGcVJC9/gTV8FGcVJC9.glb
+I0928 06:29:19.882838 950488 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : /home/zuoxy/ceph_old/data/mp3d/gTV8FGcVJC9/gTV8FGcVJC9.glb changed to proposed JSON configuration filename : /home/zuoxy/ceph_old/data/mp3d/gTV8FGcVJC9/gTV8FGcVJC9.stage_config.json
+I0928 06:29:19.883060 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : /home/zuoxy/ceph_old/data/mp3d/gTV8FGcVJC9/gTV8FGcVJC9.stage_config.json from original name : /home/zuoxy/ceph_old/data/mp3d/gTV8FGcVJC9/gTV8FGcVJC9.glb | This file  does not exist.
+I0928 06:29:19.883482 950488 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/gTV8FGcVJC9/gTV8FGcVJC9.glb
+I0928 06:29:19.883497 950488 AbstractObjectAttributesManagerBase.h:188] File (/home/zuoxy/ceph_old/data/mp3d/gTV8FGcVJC9/gTV8FGcVJC9.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0928 06:29:19.883873 950488 Simulator.cpp:156] Loading navmesh from /home/zuoxy/ceph_old/data/mp3d/gTV8FGcVJC9/gTV8FGcVJC9.navmesh
+I0928 06:29:19.887292 950488 Simulator.cpp:158] Loaded.
+I0928 06:29:19.887305 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:29:19.887310 950488 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0928 06:29:19.887651 950488 ResourceManager.cpp:193] ResourceManager::loadStage : Loading Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/gTV8FGcVJC9/gTV8FGcVJC9_semantic.ply
+I0928 06:29:19.887656 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:29:19.887660 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/gTV8FGcVJC9/gTV8FGcVJC9_semantic.ply 
+I0928 06:29:39.214661 950488 ResourceManager.cpp:224] ResourceManager::loadStage : Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/gTV8FGcVJC9/gTV8FGcVJC9_semantic.ply loaded.
+I0928 06:29:39.214690 950488 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset /home/zuoxy/ceph_old/data/mp3d/gTV8FGcVJC9/gTV8FGcVJC9.glb.
+I0928 06:29:39.214692 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/gTV8FGcVJC9/gTV8FGcVJC9.glb 
+I0928 06:29:39.214731 950488 ResourceManager.cpp:1119] Importing Basis files as BC7 for gTV8FGcVJC9.glb
+I0928 06:30:05.127455 950488 SemanticScene.h:41] Deconstructing SemanticScene
+I0928 06:30:05.363311 950488 simulator.py:213] Loaded navmesh /home/zuoxy/ceph_old/data/mp3d/gTV8FGcVJC9/gTV8FGcVJC9.navmesh
+I0928 06:30:44.985991 950488 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0928 06:30:44.986761 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0928 06:30:44.986866 950488 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0928 06:30:44.986884 950488 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/2n8kARJN3HM/2n8kARJN3HM.glb
+I0928 06:30:44.986899 950488 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : /home/zuoxy/ceph_old/data/mp3d/2n8kARJN3HM/2n8kARJN3HM.glb changed to proposed JSON configuration filename : /home/zuoxy/ceph_old/data/mp3d/2n8kARJN3HM/2n8kARJN3HM.stage_config.json
+I0928 06:30:44.987923 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : /home/zuoxy/ceph_old/data/mp3d/2n8kARJN3HM/2n8kARJN3HM.stage_config.json from original name : /home/zuoxy/ceph_old/data/mp3d/2n8kARJN3HM/2n8kARJN3HM.glb | This file  does not exist.
+I0928 06:30:44.990782 950488 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/2n8kARJN3HM/2n8kARJN3HM.glb
+I0928 06:30:44.990808 950488 AbstractObjectAttributesManagerBase.h:188] File (/home/zuoxy/ceph_old/data/mp3d/2n8kARJN3HM/2n8kARJN3HM.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0928 06:30:44.991178 950488 Simulator.cpp:156] Loading navmesh from /home/zuoxy/ceph_old/data/mp3d/2n8kARJN3HM/2n8kARJN3HM.navmesh
+I0928 06:30:45.003935 950488 Simulator.cpp:158] Loaded.
+I0928 06:30:45.003954 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:30:45.003962 950488 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0928 06:30:45.006587 950488 ResourceManager.cpp:193] ResourceManager::loadStage : Loading Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/2n8kARJN3HM/2n8kARJN3HM_semantic.ply
+I0928 06:30:45.006603 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:30:45.006610 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/2n8kARJN3HM/2n8kARJN3HM_semantic.ply 
+I0928 06:30:56.444113 950488 ResourceManager.cpp:224] ResourceManager::loadStage : Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/2n8kARJN3HM/2n8kARJN3HM_semantic.ply loaded.
+I0928 06:30:56.444141 950488 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset /home/zuoxy/ceph_old/data/mp3d/2n8kARJN3HM/2n8kARJN3HM.glb.
+I0928 06:30:56.444144 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/2n8kARJN3HM/2n8kARJN3HM.glb 
+I0928 06:30:56.444178 950488 ResourceManager.cpp:1119] Importing Basis files as BC7 for 2n8kARJN3HM.glb
+I0928 06:31:04.879103 950488 SemanticScene.h:41] Deconstructing SemanticScene
+I0928 06:31:05.103967 950488 simulator.py:213] Loaded navmesh /home/zuoxy/ceph_old/data/mp3d/2n8kARJN3HM/2n8kARJN3HM.navmesh
+I0928 06:31:28.448877 950488 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0928 06:31:28.448940 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0928 06:31:28.449012 950488 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0928 06:31:28.449028 950488 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/rPc6DW4iMge/rPc6DW4iMge.glb
+I0928 06:31:28.449043 950488 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : /home/zuoxy/ceph_old/data/mp3d/rPc6DW4iMge/rPc6DW4iMge.glb changed to proposed JSON configuration filename : /home/zuoxy/ceph_old/data/mp3d/rPc6DW4iMge/rPc6DW4iMge.stage_config.json
+I0928 06:31:28.452491 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : /home/zuoxy/ceph_old/data/mp3d/rPc6DW4iMge/rPc6DW4iMge.stage_config.json from original name : /home/zuoxy/ceph_old/data/mp3d/rPc6DW4iMge/rPc6DW4iMge.glb | This file  does not exist.
+I0928 06:31:28.457794 950488 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/rPc6DW4iMge/rPc6DW4iMge.glb
+I0928 06:31:28.457820 950488 AbstractObjectAttributesManagerBase.h:188] File (/home/zuoxy/ceph_old/data/mp3d/rPc6DW4iMge/rPc6DW4iMge.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0928 06:31:28.458101 950488 Simulator.cpp:156] Loading navmesh from /home/zuoxy/ceph_old/data/mp3d/rPc6DW4iMge/rPc6DW4iMge.navmesh
+I0928 06:31:28.464051 950488 Simulator.cpp:158] Loaded.
+I0928 06:31:28.464069 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:31:28.464078 950488 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0928 06:31:28.464498 950488 ResourceManager.cpp:193] ResourceManager::loadStage : Loading Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/rPc6DW4iMge/rPc6DW4iMge_semantic.ply
+I0928 06:31:28.464509 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:31:28.464512 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/rPc6DW4iMge/rPc6DW4iMge_semantic.ply 
+I0928 06:31:38.093883 950488 ResourceManager.cpp:224] ResourceManager::loadStage : Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/rPc6DW4iMge/rPc6DW4iMge_semantic.ply loaded.
+I0928 06:31:38.093909 950488 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset /home/zuoxy/ceph_old/data/mp3d/rPc6DW4iMge/rPc6DW4iMge.glb.
+I0928 06:31:38.093910 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/rPc6DW4iMge/rPc6DW4iMge.glb 
+I0928 06:31:38.093935 950488 ResourceManager.cpp:1119] Importing Basis files as BC7 for rPc6DW4iMge.glb
+I0928 06:31:43.850558 950488 SemanticScene.h:41] Deconstructing SemanticScene
+I0928 06:31:44.004629 950488 simulator.py:213] Loaded navmesh /home/zuoxy/ceph_old/data/mp3d/rPc6DW4iMge/rPc6DW4iMge.navmesh
+I0928 06:32:23.894341 950488 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0928 06:32:23.894770 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0928 06:32:23.894863 950488 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0928 06:32:23.894868 950488 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/i5noydFURQK/i5noydFURQK.glb
+I0928 06:32:23.894873 950488 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : /home/zuoxy/ceph_old/data/mp3d/i5noydFURQK/i5noydFURQK.glb changed to proposed JSON configuration filename : /home/zuoxy/ceph_old/data/mp3d/i5noydFURQK/i5noydFURQK.stage_config.json
+I0928 06:32:23.895079 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : /home/zuoxy/ceph_old/data/mp3d/i5noydFURQK/i5noydFURQK.stage_config.json from original name : /home/zuoxy/ceph_old/data/mp3d/i5noydFURQK/i5noydFURQK.glb | This file  does not exist.
+I0928 06:32:23.895500 950488 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/i5noydFURQK/i5noydFURQK.glb
+I0928 06:32:23.895514 950488 AbstractObjectAttributesManagerBase.h:188] File (/home/zuoxy/ceph_old/data/mp3d/i5noydFURQK/i5noydFURQK.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0928 06:32:23.895697 950488 Simulator.cpp:156] Loading navmesh from /home/zuoxy/ceph_old/data/mp3d/i5noydFURQK/i5noydFURQK.navmesh
+I0928 06:32:23.897543 950488 Simulator.cpp:158] Loaded.
+I0928 06:32:23.897549 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:32:23.897555 950488 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0928 06:32:23.897953 950488 ResourceManager.cpp:193] ResourceManager::loadStage : Loading Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/i5noydFURQK/i5noydFURQK_semantic.ply
+I0928 06:32:23.897971 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:32:23.897982 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/i5noydFURQK/i5noydFURQK_semantic.ply 
+I0928 06:32:29.651566 950488 ResourceManager.cpp:224] ResourceManager::loadStage : Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/i5noydFURQK/i5noydFURQK_semantic.ply loaded.
+I0928 06:32:29.651592 950488 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset /home/zuoxy/ceph_old/data/mp3d/i5noydFURQK/i5noydFURQK.glb.
+I0928 06:32:29.651594 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/i5noydFURQK/i5noydFURQK.glb 
+I0928 06:32:29.651620 950488 ResourceManager.cpp:1119] Importing Basis files as BC7 for i5noydFURQK.glb
+I0928 06:32:33.027184 950488 SemanticScene.h:41] Deconstructing SemanticScene
+I0928 06:32:33.088623 950488 simulator.py:213] Loaded navmesh /home/zuoxy/ceph_old/data/mp3d/i5noydFURQK/i5noydFURQK.navmesh
+I0928 06:33:08.798844 950488 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0928 06:33:08.798902 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0928 06:33:08.798976 950488 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0928 06:33:08.798991 950488 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/r1Q1Z4BcV1o/r1Q1Z4BcV1o.glb
+I0928 06:33:08.799005 950488 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : /home/zuoxy/ceph_old/data/mp3d/r1Q1Z4BcV1o/r1Q1Z4BcV1o.glb changed to proposed JSON configuration filename : /home/zuoxy/ceph_old/data/mp3d/r1Q1Z4BcV1o/r1Q1Z4BcV1o.stage_config.json
+I0928 06:33:08.799398 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : /home/zuoxy/ceph_old/data/mp3d/r1Q1Z4BcV1o/r1Q1Z4BcV1o.stage_config.json from original name : /home/zuoxy/ceph_old/data/mp3d/r1Q1Z4BcV1o/r1Q1Z4BcV1o.glb | This file  does not exist.
+I0928 06:33:08.802014 950488 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/r1Q1Z4BcV1o/r1Q1Z4BcV1o.glb
+I0928 06:33:08.802029 950488 AbstractObjectAttributesManagerBase.h:188] File (/home/zuoxy/ceph_old/data/mp3d/r1Q1Z4BcV1o/r1Q1Z4BcV1o.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0928 06:33:08.802124 950488 Simulator.cpp:156] Loading navmesh from /home/zuoxy/ceph_old/data/mp3d/r1Q1Z4BcV1o/r1Q1Z4BcV1o.navmesh
+I0928 06:33:08.808779 950488 Simulator.cpp:158] Loaded.
+I0928 06:33:08.808792 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:33:08.808799 950488 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0928 06:33:08.809163 950488 ResourceManager.cpp:193] ResourceManager::loadStage : Loading Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/r1Q1Z4BcV1o/r1Q1Z4BcV1o_semantic.ply
+I0928 06:33:08.809168 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:33:08.809171 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/r1Q1Z4BcV1o/r1Q1Z4BcV1o_semantic.ply 
+I0928 06:33:14.085021 950488 ResourceManager.cpp:224] ResourceManager::loadStage : Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/r1Q1Z4BcV1o/r1Q1Z4BcV1o_semantic.ply loaded.
+I0928 06:33:14.085047 950488 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset /home/zuoxy/ceph_old/data/mp3d/r1Q1Z4BcV1o/r1Q1Z4BcV1o.glb.
+I0928 06:33:14.085048 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/r1Q1Z4BcV1o/r1Q1Z4BcV1o.glb 
+I0928 06:33:14.085073 950488 ResourceManager.cpp:1119] Importing Basis files as BC7 for r1Q1Z4BcV1o.glb
+I0928 06:33:30.233980 950488 SemanticScene.h:41] Deconstructing SemanticScene
+I0928 06:33:30.324370 950488 simulator.py:213] Loaded navmesh /home/zuoxy/ceph_old/data/mp3d/r1Q1Z4BcV1o/r1Q1Z4BcV1o.navmesh
+I0928 06:33:34.518020 950488 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0928 06:33:34.518442 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0928 06:33:34.518471 950488 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0928 06:33:34.518474 950488 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/vyrNrziPKCB/vyrNrziPKCB.glb
+I0928 06:33:34.518479 950488 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : /home/zuoxy/ceph_old/data/mp3d/vyrNrziPKCB/vyrNrziPKCB.glb changed to proposed JSON configuration filename : /home/zuoxy/ceph_old/data/mp3d/vyrNrziPKCB/vyrNrziPKCB.stage_config.json
+I0928 06:33:34.518676 950488 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : /home/zuoxy/ceph_old/data/mp3d/vyrNrziPKCB/vyrNrziPKCB.stage_config.json from original name : /home/zuoxy/ceph_old/data/mp3d/vyrNrziPKCB/vyrNrziPKCB.glb | This file  does not exist.
+I0928 06:33:34.519169 950488 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/vyrNrziPKCB/vyrNrziPKCB.glb
+I0928 06:33:34.519183 950488 AbstractObjectAttributesManagerBase.h:188] File (/home/zuoxy/ceph_old/data/mp3d/vyrNrziPKCB/vyrNrziPKCB.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0928 06:33:34.519467 950488 Simulator.cpp:156] Loading navmesh from /home/zuoxy/ceph_old/data/mp3d/vyrNrziPKCB/vyrNrziPKCB.navmesh
+I0928 06:33:34.524407 950488 Simulator.cpp:158] Loaded.
+I0928 06:33:34.524420 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:33:34.524427 950488 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0928 06:33:34.524821 950488 ResourceManager.cpp:193] ResourceManager::loadStage : Loading Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/vyrNrziPKCB/vyrNrziPKCB_semantic.ply
+I0928 06:33:34.524827 950488 SceneGraph.h:93] Created DrawableGroup: 
+I0928 06:33:34.524830 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/vyrNrziPKCB/vyrNrziPKCB_semantic.ply 
+I0928 06:33:58.584125 950488 ResourceManager.cpp:224] ResourceManager::loadStage : Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/vyrNrziPKCB/vyrNrziPKCB_semantic.ply loaded.
+I0928 06:33:58.584153 950488 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset /home/zuoxy/ceph_old/data/mp3d/vyrNrziPKCB/vyrNrziPKCB.glb.
+I0928 06:33:58.584156 950488 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/vyrNrziPKCB/vyrNrziPKCB.glb 
+I0928 06:33:58.584187 950488 ResourceManager.cpp:1119] Importing Basis files as BC7 for vyrNrziPKCB.glb
+I0928 06:34:18.294229 950488 SemanticScene.h:41] Deconstructing SemanticScene
+I0928 06:34:18.838206 950488 simulator.py:213] Loaded navmesh /home/zuoxy/ceph_old/data/mp3d/vyrNrziPKCB/vyrNrziPKCB.navmesh
+slurmstepd: error: *** JOB 124864 ON kd-2080ti-4.grasp.maas CANCELLED AT 2023-09-28T06:34:24 ***

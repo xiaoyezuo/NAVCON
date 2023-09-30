@@ -3,47 +3,37 @@ import math
 import os
 import magnum as mn
 import numpy as np
+import gzip, json
 from matplotlib import pyplot as plt
 import PIL
 from PIL import Image
-
+import time
 import habitat_sim
 from habitat_sim.utils.common import quat_from_angle_axis
 import pose
 import quaternion 
-
-save_index = 0
+from pathlib import Path
 
 
 file_path = "/home/zuoxy/ceph_old/rxr-data/rxr_train_guide.jsonl.gz"
-dir_path = os.path.dirname(os.path.realpath(__file__))
+# save_root_dir = "/mnt/kostas-graid/datasets"
+dir_path = Path("/mnt/kostas-graid/datasets/navcon/") #os.path.dirname(os.path.realpath(__file__))
 
-def save_img(rgb_obs, output_path):
-    global save_index
-
-    colors = []
-    for row in rgb_obs:
-        for rgba in row:
-            colors.extend([rgba[0], rgba[1], rgba[2]])
-
-    resolution_x = len(rgb_obs[0])
-    resolution_y = len(rgb_obs)
-
-    colors = bytes(colors)
-    img = Image.frombytes("RGB", (resolution_x, resolution_y), colors)
-    filepath = f"{output_path}/{save_index}.png"
+def save_img(rgbd_obs, output_dir, save_index):
+    rgb_obs = rgbd_obs[:, :, :3]
+    before_from_array = time.time()
+    img = Image.fromarray(rgb_obs)
+    before_save = time.time()
+    filepath = output_dir / f"{save_index:06d}.png"
     img.save(filepath)
-    print(f"Saved image: {filepath}")
-    save_index += 1
+    after_save = time.time()
+    
 
-def get_obs(sim, show, save, output_path):
+def get_obs(sim, show, save):
     # render sensor ouputs and optionally show them
     rgb_obs = sim.get_sensor_observations()["rgba_camera"]
     semantic_obs = sim.get_sensor_observations()["semantic_camera"]
-    # if show:
-    #     show_img((rgb_obs, semantic_obs), save)
-    if save: 
-        save_img(rgb_obs, output_path)
+    return rgb_obs, semantic_obs
 
 def place_agent_custom(sim, position, rotation):
     # place our agent in the scene
@@ -53,7 +43,8 @@ def place_agent_custom(sim, position, rotation):
     sim.agents[0].set_state(agent_state)#set state 
     return sim.agents[0].scene_node.transformation_matrix()
 
-def make_configuration(scene_file):
+def make_configuration(scene_id: str):
+    scene_file = f"/home/zuoxy/ceph_old/data/mp3d/{scene_id}/{scene_id}.glb"
     # simulator configuration
     backend_cfg = habitat_sim.SimulatorConfiguration()
     backend_cfg.scene_id = scene_file
@@ -62,7 +53,7 @@ def make_configuration(scene_file):
     # sensor configurations
     # Note: all sensors must have the same resolution
     # setup rgb and semantic sensors
-    camera_resolution = [1080, 960]
+    camera_resolution = [240, 320]
     sensors = {
         "rgba_camera": {
             "sensor_type": habitat_sim.SensorType.COLOR,
@@ -94,48 +85,72 @@ def make_configuration(scene_file):
 
 # [/setup]
 
-# This is wrapped such that it can be added to a unit test
-def main(show_imgs=False, save_imgs=True):
+def process_extraction_idx(sim, instruction_id, scene_id):
 
-    # create the simulator and render flat shaded scene
-    cfg = make_configuration(scene_file="NONE")
-    sim = habitat_sim.Simulator(cfg)
+    before_standup = time.time()
+    output_dir = dir_path / f"sampled_output_10/{instruction_id:06d}/"
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    sample_pose_trace = np.load(f"/home/zuoxy/ceph_old/rxr-data/pose_traces/rxr_train/{instruction_id:06d}_guide_pose_trace.npz")
+    sample_pose = sample_pose_trace['extrinsic_matrix']
+    
+    positions, rotations = pose.extract_camera_params(sample_pose)
+    positions = positions[::10]
+    rotations = rotations[::10]
+    after_standup = time.time()
+
+    print("Standup time", after_standup - before_standup)
+    for idx, (position, rotation) in enumerate(zip(positions, rotations)):
+        frame_extract_start = time.time()
+        agent_transform = place_agent_custom(sim, position, rotation)  # noqa: F841
+        rgb_obs, semantic_obs = get_obs(sim, False, True)
+        frame_extract_before_save = time.time()
+        save_img(rgb_obs, output_dir, idx)
+        frame_extract_end = time.time()
+        # print("Save delta:", frame_extract_end - frame_extract_before_save)
+
+def update_sim_instance(prior_sim, prior_scene_id : str, scene_id : str):
+    if prior_scene_id == scene_id:
+        return prior_sim
+    
+    if prior_sim is not None:
+        prior_sim.close()
+
+    return habitat_sim.Simulator(make_configuration(scene_id))
+
+
+# This is wrapped such that it can be added to a unit test
+def main(num_job_splits : int, job_idx : int):
+    with gzip.open(file_path, 'r') as f:
+        train_guide_data = [json.loads(line) for line in f]
+
+    instruction_id_video = np.array([data['instruction_id'] for data in train_guide_data])
+    scene_ids = np.array([data['scan'] for data in train_guide_data])
+    instruction_id_language = np.load("instruction_id.npy")
+    extraction_idx = np.array([np.where(instruction_id_video == id)[0][0] for id in instruction_id_language])    
+
+    setup_scene_id = None
+    setup_sim = None
 
     # iterate through 
-    for idx in range(5,79466):
-        sample_ins, sample_scene = pose.load_annotation(file_path, idx)
-        sample_pose_trace = np.load("/home/zuoxy/ceph_old/rxr-data/pose_traces/rxr_train/"+'{:0>6}'.format(sample_ins)+"_guide_pose_trace.npz")
-        sample_pose = sample_pose_trace['extrinsic_matrix']
+    for idx in extraction_idx[job_idx::num_job_splits]:
+        instruction_id = instruction_id_video[idx] 
+        scene_id = scene_ids[idx]
+        setup_sim = update_sim_instance(setup_sim, setup_scene_id, scene_id)
+        setup_scene_id = scene_id
+        process_extraction_idx(setup_sim, instruction_id, scene_id)
 
-        output_path = os.path.join(dir_path, "output/"+'{:0>6}'.format(sample_ins)+"/")
-
-        if save_imgs and not os.path.exists(output_path):
-            os.mkdir(output_path)
-            save_index = 0
-        # [semantic id]
-
-        test_scenes = [
-            "/home/zuoxy/ceph_old/data/mp3d/"+sample_scene+"/"+sample_scene+".glb",
-        ]
-
-        for scene in test_scenes:
-            # reconfigure the simulator with a new scene asset
-            cfg = make_configuration(scene_file=scene)
-            sim.reconfigure(cfg)
-            positions, rotations = pose.extract_camera_params(sample_pose)
-            for i in range(positions.shape[0]):
-                rotation = rotations[i]
-                position = positions[i]
-                agent_transform = place_agent_custom(sim, position, rotation)  # noqa: F841
-                get_obs(sim, False, True, output_path)
+        
 
 
 if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--no-show-images", dest="show_images", action="store_false")
-    parser.add_argument("--no-save-images", dest="save_images", action="store_false")
-    parser.set_defaults(show_images=False, save_images=True)
+    parser.add_argument("--num_job_splits", type=int, default=1)
+    parser.add_argument("--job_idx", type=int, default=0)
     args = parser.parse_args()
-    main(show_imgs=args.show_images, save_imgs=args.save_images)
+    assert args.job_idx < args.num_job_splits
+    assert args.num_job_splits >= 1
+    main(args.num_job_splits, args.job_idx)

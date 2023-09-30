@@ -31,11 +31,3 @@ def extract_camera_params(extrinsic_matrices):
         positions[i],rotations[i] = extract_one_camera_param(extrinsic_matrices[i])
     return positions, rotations
 
-#
-file_path = "/home/zuoxy/ceph_old/rxr-data/rxr_train_guide.jsonl.gz"
-with gzip.open(file_path, 'r') as f:
-        train_guide_data = [json.loads(line) for line in f]
-
-instruction_id_list = [data['instruction_id'] for data in train_guide_data]
-scene_id_list = [data['scan'] for data in train_guide_data]
-print(instruction_id_list[-10:], scene_id_list[-10:])
