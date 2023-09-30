@@ -3717,3 +3717,72 @@ I0930 01:08:47.767119 4180543 ResourceManager.cpp:569] ResourceManager::loadStag
 I0930 01:08:47.767161 4180543 ResourceManager.cpp:1119] Importing Basis files as BC7 for 7y3sRwLe3Va.glb
 I0930 01:08:51.989023 4180543 simulator.py:213] Loaded navmesh /home/zuoxy/ceph_old/data/mp3d/7y3sRwLe3Va/7y3sRwLe3Va.navmesh
 I0930 01:08:51.991428 4180543 Simulator.cpp:49] Deconstructing Simulator
+I0930 01:09:18.566082 4180543 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0930 01:09:18.566147 4180543 SemanticScene.h:41] Deconstructing SemanticScene
+I0930 01:09:18.580891 4180543 SceneManager.h:25] Deconstructing SceneManager
+I0930 01:09:18.580910 4180543 SceneGraph.h:26] Deconstructing SceneGraph
+I0930 01:09:18.582187 4180543 Sensor.h:87] Deconstructing Sensor
+I0930 01:09:18.582271 4180543 Sensor.h:87] Deconstructing Sensor
+I0930 01:09:18.582288 4180543 SceneGraph.h:26] Deconstructing SceneGraph
+I0930 01:09:18.619758 4180543 Renderer.cpp:34] Deconstructing Renderer
+I0930 01:09:18.619794 4180543 WindowlessContext.h:17] Deconstructing WindowlessContext
+I0930 01:09:18.631276 4180543 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : default changed to proposed JSON configuration filename : default.scene_dataset_config.json
+I0930 01:09:18.631299 4180543 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Dataset) : Proposing JSON name : default.scene_dataset_config.json from original name : default | This file  does not exist.
+I0930 01:09:18.631379 4180543 AssetAttributesManager.cpp:117] Asset attributes (capsule3DSolid : capsule3DSolid_hemiRings_4_cylRings_1_segments_12_halfLen_0.75_useTexCoords_false_useTangents_false) created and registered.
+I0930 01:09:18.631414 4180543 AssetAttributesManager.cpp:117] Asset attributes (capsule3DWireframe : capsule3DWireframe_hemiRings_8_cylRings_1_segments_16_halfLen_1) created and registered.
+I0930 01:09:18.631441 4180543 AssetAttributesManager.cpp:117] Asset attributes (coneSolid : coneSolid_segments_12_halfLen_1.25_rings_1_useTexCoords_false_useTangents_false_capEnd_true) created and registered.
+I0930 01:09:18.631458 4180543 AssetAttributesManager.cpp:117] Asset attributes (coneWireframe : coneWireframe_segments_32_halfLen_1.25) created and registered.
+I0930 01:09:18.631531 4180543 AssetAttributesManager.cpp:117] Asset attributes (cubeSolid : cubeSolid) created and registered.
+I0930 01:09:18.631539 4180543 AssetAttributesManager.cpp:117] Asset attributes (cubeWireframe : cubeWireframe) created and registered.
+I0930 01:09:18.631564 4180543 AssetAttributesManager.cpp:117] Asset attributes (cylinderSolid : cylinderSolid_rings_1_segments_12_halfLen_1_useTexCoords_false_useTangents_false_capEnds_true) created and registered.
+I0930 01:09:18.631587 4180543 AssetAttributesManager.cpp:117] Asset attributes (cylinderWireframe : cylinderWireframe_rings_1_segments_32_halfLen_1) created and registered.
+I0930 01:09:18.631597 4180543 AssetAttributesManager.cpp:117] Asset attributes (icosphereSolid : icosphereSolid_subdivs_1) created and registered.
+I0930 01:09:18.631620 4180543 AssetAttributesManager.cpp:117] Asset attributes (icosphereWireframe : icosphereWireframe_subdivs_1) created and registered.
+I0930 01:09:18.631651 4180543 AssetAttributesManager.cpp:117] Asset attributes (uvSphereSolid : uvSphereSolid_rings_8_segments_16_useTexCoords_false_useTangents_false) created and registered.
+I0930 01:09:18.631665 4180543 AssetAttributesManager.cpp:117] Asset attributes (uvSphereWireframe : uvSphereWireframe_rings_16_segments_32) created and registered.
+I0930 01:09:18.631671 4180543 AssetAttributesManager.cpp:105] AssetAttributesManager::buildCtorFuncPtrMaps : Built default primitive asset templates : 12
+I0930 01:09:18.635915 4180543 SceneDatasetAttributesManager.cpp:23] File (default) not found, so new default dataset attributes created and registered.
+I0930 01:09:18.635921 4180543 MetadataMediator.cpp:47] MetadataMediator::createDataset : Dataset default successfully created.
+I0930 01:09:18.636133 4180543 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0930 01:09:18.636152 4180543 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0930 01:09:18.636165 4180543 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.glb
+I0930 01:09:18.636171 4180543 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.glb changed to proposed JSON configuration filename : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.stage_config.json
+I0930 01:09:18.712888 4180543 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.stage_config.json from original name : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.glb | This file  does not exist.
+I0930 01:09:18.713212 4180543 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.glb
+I0930 01:09:18.713227 4180543 AbstractObjectAttributesManagerBase.h:188] File (/home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0930 01:09:18.713253 4180543 Simulator.cpp:156] Loading navmesh from /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.navmesh
+I0930 01:09:18.716609 4180543 Simulator.cpp:158] Loaded.
+I0930 01:09:18.716645 4180543 SceneGraph.h:93] Created DrawableGroup: 
+Renderer: NVIDIA GeForce RTX 2080 Ti/PCIe/SSE2 by NVIDIA Corporation
+OpenGL version: 4.6.0 NVIDIA 525.60.13
+Using optional features:
+    GL_ARB_ES2_compatibility
+    GL_ARB_direct_state_access
+    GL_ARB_get_texture_sub_image
+    GL_ARB_invalidate_subdata
+    GL_ARB_multi_bind
+    GL_ARB_robustness
+    GL_ARB_separate_shader_objects
+    GL_ARB_texture_filter_anisotropic
+    GL_ARB_texture_storage
+    GL_ARB_texture_storage_multisample
+    GL_ARB_vertex_array_object
+    GL_KHR_debug
+Using driver workarounds:
+    no-forward-compatible-core-context
+    nv-egl-incorrect-gl11-function-pointers
+    no-layout-qualifiers-on-old-glsl
+    nv-zero-context-profile-mask
+    nv-implementation-color-read-format-dsa-broken
+    nv-cubemap-inconsistent-compressed-image-size
+    nv-cubemap-broken-full-compressed-image-query
+    nv-compressed-block-size-in-bits
+I0930 01:09:18.735344 4180543 ResourceManager.cpp:193] ResourceManager::loadStage : Loading Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs_semantic.ply
+I0930 01:09:18.735364 4180543 SceneGraph.h:93] Created DrawableGroup: 
+I0930 01:09:18.735371 4180543 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs_semantic.ply 
+I0930 01:09:54.346710 4180543 ResourceManager.cpp:224] ResourceManager::loadStage : Semantic Stage mesh : /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs_semantic.ply loaded.
+I0930 01:09:54.346740 4180543 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.glb.
+I0930 01:09:54.346743 4180543 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.glb 
+I0930 01:09:54.346776 4180543 ResourceManager.cpp:1119] Importing Basis files as BC7 for B6ByNegPMKs.glb
+I0930 01:10:08.068039 4180543 simulator.py:213] Loaded navmesh /home/zuoxy/ceph_old/data/mp3d/B6ByNegPMKs/B6ByNegPMKs.navmesh
+I0930 01:10:08.074048 4180543 Simulator.cpp:49] Deconstructing Simulator
