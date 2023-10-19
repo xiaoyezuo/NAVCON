@@ -8,7 +8,7 @@
 #SBATCH --qos kd-med
 #SBATCH --time=24:00:00
 #SBATCH --output=frame_extraction_%a.out
-#SBATCH --error=frame_extraction_%a.out
+#SBATCH --error=frame_extraction_%a.err
 #SBATCH --array=0-9
 
 conda activate habitat

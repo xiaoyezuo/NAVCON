@@ -16,9 +16,9 @@ from pathlib import Path
 
 
 file_path = "/home/zuoxy/ceph_old/rxr-data/rxr_train_guide.jsonl.gz"
-# save_root_dir = "/mnt/kostas-graid/datasets"
 dir_path = Path("/mnt/kostas-graid/datasets/navcon/") #os.path.dirname(os.path.realpath(__file__))
 
+# save image observation to output directory 
 def save_img(rgbd_obs, output_dir, save_index):
     rgb_obs = rgbd_obs[:, :, :3]
     before_from_array = time.time()
@@ -28,21 +28,21 @@ def save_img(rgbd_obs, output_dir, save_index):
     img.save(filepath)
     after_save = time.time()
     
-
+# get rgbd observation from habitat camera 
 def get_obs(sim, show, save):
-    # render sensor ouputs and optionally show them
     rgb_obs = sim.get_sensor_observations()["rgba_camera"]
     semantic_obs = sim.get_sensor_observations()["semantic_camera"]
     return rgb_obs, semantic_obs
 
+# place our agent in the scene
 def place_agent_custom(sim, position, rotation):
-    # place our agent in the scene
     agent_state = habitat_sim.AgentState()
     agent_state.position = position
     agent_state.rotation = quaternion.from_rotation_matrix(rotation)
     sim.agents[0].set_state(agent_state)#set state 
     return sim.agents[0].scene_node.transformation_matrix()
 
+# habitat configurations
 def make_configuration(scene_id: str):
     scene_file = f"/home/zuoxy/ceph_old/data/mp3d/{scene_id}/{scene_id}.glb"
     # simulator configuration
@@ -50,9 +50,8 @@ def make_configuration(scene_id: str):
     backend_cfg.scene_id = scene_file
     backend_cfg.enable_physics = True
 
-    # sensor configurations
+    # sensor configuration: setup rgb and semantic sensors
     # Note: all sensors must have the same resolution
-    # setup rgb and semantic sensors
     camera_resolution = [240, 320]
     sensors = {
         "rgba_camera": {
@@ -82,9 +81,7 @@ def make_configuration(scene_id: str):
 
     return habitat_sim.Configuration(backend_cfg, [agent_cfg])
 
-
-# [/setup]
-
+# extract scene frames in habitat for each rxr instruction 
 def process_extraction_idx(sim, instruction_id, scene_id):
 
     before_standup = time.time()
@@ -110,6 +107,7 @@ def process_extraction_idx(sim, instruction_id, scene_id):
         frame_extract_end = time.time()
         # print("Save delta:", frame_extract_end - frame_extract_before_save)
 
+# update habitat simulator for each instruction to prevent memory leak 
 def update_sim_instance(prior_sim, prior_scene_id : str, scene_id : str):
     if prior_scene_id == scene_id:
         return prior_sim
@@ -118,7 +116,6 @@ def update_sim_instance(prior_sim, prior_scene_id : str, scene_id : str):
         prior_sim.close()
 
     return habitat_sim.Simulator(make_configuration(scene_id))
-
 
 # This is wrapped such that it can be added to a unit test
 def main(num_job_splits : int, job_idx : int):
@@ -133,17 +130,14 @@ def main(num_job_splits : int, job_idx : int):
     setup_scene_id = None
     setup_sim = None
 
-    # iterate through 
+    # iterate through all instructions in multiple jobs in parallel 
     for idx in extraction_idx[job_idx::num_job_splits]:
         instruction_id = instruction_id_video[idx] 
         scene_id = scene_ids[idx]
         setup_sim = update_sim_instance(setup_sim, setup_scene_id, scene_id)
         setup_scene_id = scene_id
         process_extraction_idx(setup_sim, instruction_id, scene_id)
-
         
-
-
 if __name__ == "__main__":
     import argparse
 
