@@ -6,15 +6,12 @@ from scipy.spatial.transform import Rotation as R
 def load_annotation(file_path, idx):
     with gzip.open(file_path, 'r') as f:
         train_guide_data = [json.loads(line) for line in f]
-    # print(len(train_guide_data)) = 79467
     instruction_id = train_guide_data[idx]['instruction_id']
     scene_id = train_guide_data[idx]['scan']
     return instruction_id, scene_id
 
 #extract rotation and position in world coordinate for one timestep 
 def extract_one_camera_param(extrinsic_matrix):
-    # transform = np.array([[1, 0, 0, 0], [0, 0, 1, 0], [0, -1, 0, 0], [0, 0, 0, 1]])
-    # pose_habitat = np.dot(extrinsic_matrix, transform)
     pose_habitat = extrinsic_matrix
     R = pose_habitat[:3,:3]
     T = pose_habitat[:3,-1]

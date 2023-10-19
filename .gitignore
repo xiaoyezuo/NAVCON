@@ -1,10 +1,9 @@
 #extracted frames
 /output
-/sampled_output_10
-/extracted_output
 /clips
 /eval_clips
 /rxr_clips
 /sampled_output_10_old
-/test.py
+/__pycache__
+/frame_extract.bash
 

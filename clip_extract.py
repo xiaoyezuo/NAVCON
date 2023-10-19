@@ -3,14 +3,14 @@ import numpy as np
 import gzip, json, shutil
 from scipy.spatial.transform import Rotation as R
 
-file_path = "/home/zuoxy/ceph_old/rxr-data/rxr_train_guide.jsonl.gz"
-dir_path = "/home/zuoxy/ceph_old/action_recognition/"
+file_path = "/home/.../rxr_train_guide.jsonl.gz" # path to rxr train guide data
+dir_path = "/home/.../navcon_video/" # path to current directory 
 
 #load instruction id
 instruction_ids = np.load("instruction_id.npy")
 
 #load concept time mapping
-concept_timestamp = np.load("/home/zuoxy/ceph_old/action_recognition/concept_timestamp.npy", allow_pickle=True).item()
+concept_timestamp = np.load("concept_timestamp.npy", allow_pickle=True).item()
 
 #find the index of the closest timestamp to input time 
 def closest_index(t, timestamps):
@@ -45,15 +45,14 @@ def extract_frames(instruction_id, concept_idx, vid_dir, out_dir):
 def extract_all(instruction_ids, concept_timestamp):
     #loop through all instruction ids
     for instruction_id in instruction_ids:
-        print(instruction_id)
-        vid_dir = "/mnt/kostas-graid/datasets/navcon/sampled_output_10/"+'{:0>6}'.format(instruction_id)+"/"
-        out_dir = dir_path + "clips/"+'{:0>6}'.format(instruction_id)+"/"
+        vid_dir = "rxr_clips/"+'{:0>6}'.format(instruction_id)+"/"
+        out_dir = dir_path + "concept_clips/"+'{:0>6}'.format(instruction_id)+"/"
         #skip existing clips 
         if os.path.isdir(out_dir) or (instruction_id not in concept_timestamp):
             continue
         #extract images for each instruction
         concept_time = concept_timestamp[instruction_id]
-        pose_trace = np.load("/home/zuoxy/ceph_old/rxr-data/pose_traces/rxr_train/"+'{:0>6}'.format(instruction_id)+"_guide_pose_trace.npz")
+        pose_trace = np.load("/home/.../rxr-data/pose_traces/rxr_train/"+'{:0>6}'.format(instruction_id)+"_guide_pose_trace.npz")
         timestamps = pose_trace['time'][::10]
         concept_idx = concept_time_to_concept_index(concept_time, timestamps)
         extract_frames(instruction_id, concept_idx, vid_dir, out_dir)

@@ -15,8 +15,8 @@ import quaternion
 from pathlib import Path
 
 
-file_path = "/home/zuoxy/ceph_old/rxr-data/rxr_train_guide.jsonl.gz"
-dir_path = Path("/mnt/kostas-graid/datasets/navcon/") #os.path.dirname(os.path.realpath(__file__))
+file_path = "/home/.../rxr-data/rxr_train_guide.jsonl.gz"
+dir_path = Path("/navcon_video/")
 
 # save image observation to output directory 
 def save_img(rgbd_obs, output_dir, save_index):
@@ -44,7 +44,7 @@ def place_agent_custom(sim, position, rotation):
 
 # habitat configurations
 def make_configuration(scene_id: str):
-    scene_file = f"/home/zuoxy/ceph_old/data/mp3d/{scene_id}/{scene_id}.glb"
+    scene_file = f"/data/mp3d/{scene_id}/{scene_id}.glb"
     # simulator configuration
     backend_cfg = habitat_sim.SimulatorConfiguration()
     backend_cfg.scene_id = scene_file
@@ -84,23 +84,23 @@ def make_configuration(scene_id: str):
 # extract scene frames in habitat for each rxr instruction 
 def process_extraction_idx(sim, instruction_id, scene_id):
 
-    before_standup = time.time()
-    output_dir = dir_path / f"sampled_output_10/{instruction_id:06d}/"
+    # before_standup = time.time()
+    output_dir = dir_path / f"rxr_clips/{instruction_id:06d}/"
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    sample_pose_trace = np.load(f"/home/zuoxy/ceph_old/rxr-data/pose_traces/rxr_train/{instruction_id:06d}_guide_pose_trace.npz")
+    sample_pose_trace = np.load(f"/home/.../rxr-data/pose_traces/rxr_train/{instruction_id:06d}_guide_pose_trace.npz")
     sample_pose = sample_pose_trace['extrinsic_matrix']
     
     positions, rotations = pose.extract_camera_params(sample_pose)
     positions = positions[::10]
     rotations = rotations[::10]
-    after_standup = time.time()
+    # after_standup = time.time()
 
-    print("Standup time", after_standup - before_standup)
+    # print("Standup time", after_standup - before_standup)
     for idx, (position, rotation) in enumerate(zip(positions, rotations)):
         frame_extract_start = time.time()
-        agent_transform = place_agent_custom(sim, position, rotation)  # noqa: F841
+        agent_transform = place_agent_custom(sim, position, rotation)  
         rgb_obs, semantic_obs = get_obs(sim, False, True)
         frame_extract_before_save = time.time()
         save_img(rgb_obs, output_dir, idx)
