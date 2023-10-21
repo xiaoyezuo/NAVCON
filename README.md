@@ -3,7 +3,7 @@
 ## NAVCON concept annotations 
 - NAVCON contains annotations of instructions taken from the following two [VLN datasets](https://github.com/jacobkrantz/VLN-CE): a) [R2R VLNCE](https://bringmeaspoon.org/): Room-to-Room Vision and Language Navigation in Continuous Environments and b) [RxR VLNCE](https://ai.google.com/research/rxr/): Room-Across-Room Vision and Language Navigation in Continuous Environments.
 - We leverage the Train data splits from these two publicly available VLN datasets to extract 30,815 (19,996 from RxR and 10,819 from R2R) English language instructions to release 236,316 concept instantiations.
-- By typing the following command in your terminal you can download three files: ```root_verbs_final.csv```,```RXR_R2R_meta_data.txt```, ```RxR_meta_data.txt```, and ```rxr_mapping.txt``` together as a compressed archive file.
+- By typing the following command in your terminal you can download three files: ```root_verbs_final.csv```,```RXR_R2R_meta_data.txt```, ```RXR_meta_data.txt```, and ```rxr_mapping.txt``` together as a compressed archive file.
   
   **Command:** ```Hidden during review phase.```
 
@@ -13,7 +13,7 @@
 1. ```root_verbs_final.csv``` is the dataset containing all 80 Root Verbs that were manually annotated by the authors to assign unambiguous concepts. 
 
 
-2. The ```RxR_R2R_meta_data.txt``` dataset is a json of the following structure:
+2. The ```RXR_R2R_meta_data.txt``` dataset is a json of the following structure:
     - It has four main elements: ```"sentence"```, ```"final_phrase"```, ```"final_concept"```, ```"meta_dict"```. All of these are list of 30,815 items.
     - ```"sentence"```: List of 30,815 RxR and R2R instructions
     - ```"final_phrase"```: List of 30,815 lists. Each list contains concept phrases from the respective instruction.
@@ -31,7 +31,7 @@
       - ```"remaining_idx"```: List of pairs of (start and stop) word indices of the remaining words
      
         
-3. The ```RxR_meta_data.txt``` dataset is a json with same elements as above with 2 more keys in the ```"meta_dict"``` dictionary since these timestamps were not available for R2R dataset:
+3. The ```RXR_meta_data.txt``` dataset is a json with same elements as above with 2 more keys in the ```"meta_dict"``` dictionary since these timestamps were not available for R2R dataset:
       - ```"timestamp"```: List of (Token/Phrase - Timestamp) mapping taken directly from RxR Training data split
       - ```"concept_timestamp"```: List of dictionary of concept-timestamp mapping
         - ```concept```: List of concepts
@@ -40,7 +40,7 @@
 
         
 4. The ```rxr_mapping.txt``` dataset is a json with the following keys:
-      - ```"general_idx"```: List of 19996 indices representing the items highlighted in ```RxR_meta_data.txt``` above.
+      - ```"general_idx"```: List of 19996 indices representing the items highlighted in ```RXR_meta_data.txt``` above.
       - ```"instruction_id"```: List of corresponding **Instruction ID** from RxR video dataset. This mapping was used to tie the ```RXR_meta_data.txt``` dataset with **NAVCON concept-video clips dataset** described in the end of this document.
 
 
