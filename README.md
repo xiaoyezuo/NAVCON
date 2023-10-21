@@ -1,9 +1,9 @@
 # Introducing NAVCON: A Large Scale Cognitively Inspired and Linguistically Grounded Corpus for Vision-Language Navigation
 
 ## NAVCON concept annotations 
-- NAVCON contains annotations of instructions taken from the following two [VLN datasets](https://github.com/jacobkrantz/VLN-CE): a) [R2R VLNCE](https://bringmeaspoon.org/): Room-to-Room Vision and Language Navigation in Continuous Environments and b) [RXR VLNCE](https://ai.google.com/research/rxr/): Room-Across-Room Vision and Language Navigation in Continuous Environments.
-- We leverage the Train data splits from these two publicly available VLN datasets to extract 30,815 (19,996 from RXR and 10,819 from R2R) English language instructions to release 236,316 concept instantiations.
-- By typing the following command in your terminal you can download three files: ```root_verbs_final.csv```,```RXR_R2R_meta_data.txt```, ```RXR_meta_data.txt```, and ```rxr_mapping.txt``` together as a compressed archive file.
+- NAVCON contains annotations of instructions taken from the following two [VLN datasets](https://github.com/jacobkrantz/VLN-CE): a) [R2R VLNCE](https://bringmeaspoon.org/): Room-to-Room Vision and Language Navigation in Continuous Environments and b) [RxR VLNCE](https://ai.google.com/research/rxr/): Room-Across-Room Vision and Language Navigation in Continuous Environments.
+- We leverage the Train data splits from these two publicly available VLN datasets to extract 30,815 (19,996 from RxR and 10,819 from R2R) English language instructions to release 236,316 concept instantiations.
+- By typing the following command in your terminal you can download three files: ```root_verbs_final.csv```,```RXR_R2R_meta_data.txt```, ```RxR_meta_data.txt```, and ```rxr_mapping.txt``` together as a compressed archive file.
   
   **Command:** ```Hidden during review phase.```
 
@@ -13,9 +13,9 @@
 1. ```root_verbs_final.csv``` is the dataset containing all 80 Root Verbs that were manually annotated by the authors to assign unambiguous concepts. 
 
 
-2. The ```RXR_R2R_meta_data.txt``` dataset is a json of the following structure:
+2. The ```RxR_R2R_meta_data.txt``` dataset is a json of the following structure:
     - It has four main elements: ```"sentence"```, ```"final_phrase"```, ```"final_concept"```, ```"meta_dict"```. All of these are list of 30,815 items.
-    - ```"sentence"```: List of 30,815 RXR and R2R instructions
+    - ```"sentence"```: List of 30,815 RxR and R2R instructions
     - ```"final_phrase"```: List of 30,815 lists. Each list contains concept phrases from the respective instruction.
     - ```"final_concept"```: List of 30,815 lists. Each list contains concepts for the respective phrases.
     - ```"meta_dict"```: List of 30,815 dictionaries. There could be cases where no concepts were identified in an instruction by [Stanza Constituency Parser](https://stanfordnlp.github.io/stanza/constituency.html) and in those cases ```"meta_dict"``` would be blank ```{}```. Each dictionary contains following meta data for the respective phrases:
@@ -31,8 +31,8 @@
       - ```"remaining_idx"```: List of pairs of (start and stop) word indices of the remaining words
      
         
-3. The ```RXR_meta_data.txt``` dataset is a json with same elements as above with 2 more keys in the ```"meta_dict"``` dictionary since these timestamps were not available for R2R dataset:
-      - ```"timestamp"```: List of (Token/Phrase - Timestamp) mapping taken directly from RXR Training data split
+3. The ```RxR_meta_data.txt``` dataset is a json with same elements as above with 2 more keys in the ```"meta_dict"``` dictionary since these timestamps were not available for R2R dataset:
+      - ```"timestamp"```: List of (Token/Phrase - Timestamp) mapping taken directly from RxR Training data split
       - ```"concept_timestamp"```: List of dictionary of concept-timestamp mapping
         - ```concept```: List of concepts
         - ```start```:List of starting timestamps for the respective concepts
@@ -40,8 +40,8 @@
 
         
 4. The ```rxr_mapping.txt``` dataset is a json with the following keys:
-      - ```"general_idx"```: List of 19996 indices representing the items highlighted in ```RXR_meta_data.txt``` above.
-      - ```"instruction_id"```: List of corresponding **Instruction ID** from RXR video dataset. This mapping was used to tie the ```RXR_meta_data.txt``` dataset with **NAVCON concept-video clips dataset** described in the end of this document.
+      - ```"general_idx"```: List of 19996 indices representing the items highlighted in ```RxR_meta_data.txt``` above.
+      - ```"instruction_id"```: List of corresponding **Instruction ID** from RxR video dataset. This mapping was used to tie the ```RXR_meta_data.txt``` dataset with **NAVCON concept-video clips dataset** described in the end of this document.
 
 
 Following is the structure of the JSON:
@@ -329,8 +329,8 @@ Following is the structure of the JSON:
 
 ## NAVCON Concept-video Clips
 
-- The concept-video clips dataset (```Hidden during review phase.```) contains sequential image frames corresponding to each concept for 19074 RXR instructions.
-- Specifically, the top-level folders inside rxr_clips are named after instruction ids in the RXR dataset.
+- The concept-video clips dataset (```Hidden during review phase.```) contains sequential image frames corresponding to each concept for 19074 RxR instructions.
+- Specifically, the top-level folders inside rxr_clips are named after instruction ids in the RxR dataset.
 - Inside each instruction's folder, each concept identified in the instruction has a subfoler of corresponding images in chronological order. For example, folder 000000 contains the concept-video clips for instruction 000000 and the subfoler 0 contains clips for the first concept identified in this instruction.
 - The dataset is hosted on AWS S3 and can be [accessed](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html) through the S3 URL (```Hidden during review phase.```). To download the dataset to your local destination, [install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) AWS CLI and run the following command:     
 
