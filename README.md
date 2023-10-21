@@ -1,9 +1,37 @@
 # Introducing NAVCON: A Large Scale Cognitively Inspired and Linguistically Grounded Corpus for Vision-Language Navigation
 
-## NAVCON Language 
+## NAVCON concept annotations 
 - NAVCON contains annotations of instructions taken from the following two [VLN datasets](https://github.com/jacobkrantz/VLN-CE): a) [R2R VLNCE](https://bringmeaspoon.org/): Room-to-Room Vision and Language Navigation in Continuous Environments and b) [RXR VLNCE](https://ai.google.com/research/rxr/): Room-Across-Room Vision and Language Navigation in Continuous Environments.
-- We leverage the Train data splits from these two publicly available VLN datasets to extract 30,815 (19,996 from RXR and 10,819 from R2R) English language instructions to release 236,316 concept instantiations. These instantiations can be found [here]().
-  - The dataset is a json of the following structure:
+- We leverage the Train data splits from these two publicly available VLN datasets to extract 30,815 (19,996 from RXR and 10,819 from R2R) English language instructions to release 236,316 concept instantiations.
+- At this location (s3://navcondata/concept_instances/) you can download three files: ```RXR_R2R_meta_data.txt```, ```RXR_meta_data.txt```, and ```rxr_mapping.txt``` together as a compressed archive file.
+  - The ```RXR_R2R_meta_data.txt``` dataset is a json of the following structure:
+    - It has four main elements: ```"sentence"```, ```"final_phrase"```, ```"final_concept"```, ```"meta_dict"```. All of these are list of 30,815 items.
+    - ```"sentence"```: List of 30,815 RXR and R2R instructions
+    - ```"final_phrase"```: List of 30,815 lists. Each list contains concept phrases from the respective instruction.
+    - ```"final_concept"```: List of 30,815 lists. Each list contains concepts for the respective phrases.
+    - ```"meta_dict"```: List of 30,815 dictionaries. There could be cases where no concepts were identified in an instruction by [Stanza Constituency Parser](https://stanfordnlp.github.io/stanza/constituency.html) and in those cases ```"meta_dict"``` would be blank ```{}```. Each dictionary contains following meta data for the respective phrases:
+      - ```"phrase"```: List of concept phrases
+      - ```"start_idx"```: Character starting indices of the respective concept phrases
+      - ```"stop_idx"```: Character stopping indices of the respective concept phrases
+      - ```"concept"```: List of concepts
+      - ```"rem_start_idx"```: Character starting indices of the remaining text excluding concept phrases
+      - ```"rem_stop_idx"```: Character stopping indices of the remaining text excluding concept phrases
+      - ```"concept_words"```: List of concept phrases as words split at white-space
+      - ```"concept_idx"```: List of indices of concept words split at white-space
+      - ```"remaining_words"```: List of remaining words split at white-space
+      - ```"remaining_idx"```: List of pairs of (start and stop) word indices of the remaining words
+  - The ```RXR_meta_data.txt``` dataset is a json with same elements as above with 2 more keys in the ```"meta_dict"``` dictionary since these timestamps were not available for R2R dataset:
+      - ```"timestamp"```: List of (Token/Phrase - Timestamp) mapping taken directly from RXR Training data split
+      - ```"concept_timestamp"```: List of dictionary of concept-timestamp mapping
+        -```concept```: List of concepts
+        -```start```:List of starting timestamps for the respective concepts
+        -```end```:List of ending timestamps for the respective concepts
+   - The ```rxr_mapping.txt``` dataset is a json with the following keys:
+      - ```"general_idx"```: List of 19996 indices representing the items highlighted in ```RXR_meta_data.txt``` above.
+      - ```"instruction_id"```: List of corresponding **Instruction ID** from RXR video dataset. This mapping was used to tie the ```RXR_meta_data.txt``` dataset with **NAVCON concept-video clips dataset** described in the end of this document.
+
+Following is the structure of the JSON:
+        
 ```JSON
 {
   "sentence": [
@@ -195,17 +223,62 @@
             48,
             54
           ]
+        ],
+        "timestamp": [
+          {
+            "end_time": 1.5,
+            "word": "You",
+            "start_time": 1.0
+          },
+          {
+            "end_time": 1.6,
+            "word": "will",
+            "start_time": 1.5
+          },
+          {
+            "start_time": 1.6,
+            "end_time": 2.2,
+            "word": "start"
+          },
+          "..."
+        ],
+        "concept_timestamp": [
+          {
+            "concept": [
+              "situate",
+              "change direction",
+              "situate",
+              "move",
+              "situate"
+            ],
+            "start": [
+              2.5,
+              10.3,
+              13.0,
+              18.2,
+              27.2
+            ],
+            "end": [
+              6.2,
+              12.7,
+              16.5,
+              24.5,
+              31.7
+            ]
+          }
         ]
       }
     ]
   ]
 }
 ```
-
+## Training data for training Navigation Concept Classifier (NCC) using the 236,616 instantiations described above:
+- To further evaluate the quality and usefulness of the annotations in NAVCON, we trained a model which identifies navigation concepts and the phrases that realize them.
+- We have created a pickle file (s3://navcondata/BERT_training_data/) of a TOKEN-TAG format dataframe that can be directly used to fine-tuned a light-weight general purpose language representation model, [distilbert-base-uncased](https://huggingface.co/distilbert-base-uncased)
 
 ## NAVCON Concept-video Clips
 
-The concept-video clips dataset(s3://navcondata/rxr_clips/) contains sequential image frames corresponding to each concept for 19074 RXR instructions. Specifically, the top-level folders inside rxr_clip are named after instruction ids in the RXR dataset. Inside each instruction's folder, each concept identified in the instruction has a subfoler of corresponding images in chronological order. For example, folder 000000 contains the concept-video clips for instruction 000000 and the subfoler 0 contains clips for the first concept identified in this instruction.    
+The concept-video clips dataset (s3://navcondata/rxr_clips/) contains sequential image frames corresponding to each concept for 19074 RXR instructions. Specifically, the top-level folders inside rxr_clip are named after instruction ids in the RXR dataset. Inside each instruction's folder, each concept identified in the instruction has a subfoler of corresponding images in chronological order. For example, folder 000000 contains the concept-video clips for instruction 000000 and the subfoler 0 contains clips for the first concept identified in this instruction.    
 
 The dataset is hosted on AWS S3 and can be [accessed](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html) through the S3 URL( s3://navcondata/rxr_clips/). To download the dataset to your local destination, [install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) AWS CLI and run the following command:     
 
