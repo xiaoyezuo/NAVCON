@@ -5,7 +5,7 @@
 - We leverage the Train data splits from these two publicly available VLN datasets to extract 30,815 (19,996 from RXR and 10,819 from R2R) English language instructions to release 236,316 concept instantiations.
 - By typing the following command in your terminal you can download three files: ```root_verbs_final.csv```,```RXR_R2R_meta_data.txt```, ```RXR_meta_data.txt```, and ```rxr_mapping.txt``` together as a compressed archive file.
   
-  **Command:** ```Blackened during review phase.```
+  **Command:** ```Hidden during review phase.```
 
   Details on the three files are as follows:
 
@@ -289,14 +289,14 @@ Following is the structure of the JSON:
 ```
 ## Training data for training Navigation Concept Classifier (NCC) using the 236,616 instantiations described above:
 - To further evaluate the quality and usefulness of the annotations in NAVCON, we trained a model which identifies navigation concepts and the phrases that realize them.
-- We have created a pickle file (```Blackened during review phase.```) of a TOKEN-TAG format dataframe that can be directly used to fine-tuned a light-weight general purpose language representation model, [distilbert-base-uncased](https://huggingface.co/distilbert-base-uncased)
+- We have created a pickle file (```Hidden during review phase.```) of a TOKEN-TAG format dataframe that can be directly used to fine-tuned a light-weight general purpose language representation model, [distilbert-base-uncased](https://huggingface.co/distilbert-base-uncased)
 
-- **Command:** ```Blackened during review phase.```
+- **Command:** ```Hidden during review phase.```
 
 ## The trained Navigation Concept Classifier (NCC):
-- Fine-tuned NCC on NAVCON can be found here: (```Blackened during review phase.```) and can be loaded directly using ```transformers``` python library
+- Fine-tuned NCC on NAVCON can be found here: (```Hidden during review phase.```) and can be loaded directly using ```transformers``` python library
 - You may choose to load the fine-tuned NCC in the following manner:
-- - **Command:** ```Blackened during review phase.```
+- **Command:** ```Hidden during review phase.```
   
   ```python
   from transformers import AutoTokenizer
@@ -329,13 +329,13 @@ Following is the structure of the JSON:
 
 ## NAVCON Concept-video Clips
 
-- The concept-video clips dataset (```Blackened during review phase.```) contains sequential image frames corresponding to each concept for 19074 RXR instructions.
+- The concept-video clips dataset (```Hidden during review phase.```) contains sequential image frames corresponding to each concept for 19074 RXR instructions.
 - Specifically, the top-level folders inside rxr_clips are named after instruction ids in the RXR dataset.
 - Inside each instruction's folder, each concept identified in the instruction has a subfoler of corresponding images in chronological order. For example, folder 000000 contains the concept-video clips for instruction 000000 and the subfoler 0 contains clips for the first concept identified in this instruction.
-- The dataset is hosted on AWS S3 and can be [accessed](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html) through the S3 URL (```Blackened during review phase.```). To download the dataset to your local destination, [install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) AWS CLI and run the following command:     
+- The dataset is hosted on AWS S3 and can be [accessed](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html) through the S3 URL (```Hidden during review phase.```). To download the dataset to your local destination, [install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) AWS CLI and run the following command:     
 
 ```
-Blackened during review phase.
+Hidden during review phase.
 ```
 
 Once you have downloaded the concept-video clip dataset, you may go through the instruction folders and use the ```JSON``` file to extract concept-clip pairs. A sample output has been presented below:
