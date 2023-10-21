@@ -330,11 +330,36 @@ Following is the structure of the JSON:
 ## NAVCON Concept-video Clips
 
 - The concept-video clips dataset (s3://navcondata/rxr_clips/) contains sequential image frames corresponding to each concept for 19074 RXR instructions.
-- Specifically, the top-level folders inside rxr_clips are named after instruction ids in the RXR dataset. Inside each instruction's folder, each concept identified in the instruction has a subfoler of corresponding images in chronological order. For example, folder 000000 contains the concept-video clips for instruction 000000 and the subfoler 0 contains clips for the first concept identified in this instruction.
+- Specifically, the top-level folders inside rxr_clips are named after instruction ids in the RXR dataset.
+- Inside each instruction's folder, each concept identified in the instruction has a subfoler of corresponding images in chronological order. For example, folder 000000 contains the concept-video clips for instruction 000000 and the subfoler 0 contains clips for the first concept identified in this instruction.
 - The dataset is hosted on AWS S3 and can be [accessed](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html) through the S3 URL( s3://navcondata/rxr_clips/). To download the dataset to your local destination, [install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) AWS CLI and run the following command:     
 
 ```
 aws s3 sync s3://navcondata/rxr_clips/ <local_destination>
 ```
 
+Once you have downloaded the concept-video clip dataset, you may go through the instruction folders and use the ```JSON``` file to extract concept-clip pairs. A sample output has been presented below:
 
+*Now you can see an opened door in front of you.
+Exit the room through that opened door and turn
+towards you’re left. You can find a narrow walk way.
+Walk through that passage passing the glass walls
+on the left and right side. Now, here you can see a
+huge pillar on the right side and on the left there is
+a red couch. Move towards the red couch and that
+would be the end point*
+
+
+![alt text](clip_sample.png "Example of concept-clip alignments in NAVCON. Timesteps progress from left to right in the grid")
+
+
+*You are going to start facing a yellow vase. Turn
+to the left and go down the stairs. At the bottom,
+you are going to walk to the right of that console
+table and red rug, and take a right turn. You should
+be facing. I think this is an elevator with a phone.
+Take one step to be inside this elevator, and you
+are done*
+
+
+![alt text](clip_sample_2.png "Example of concept-clip alignments in NAVCON. Timesteps progress from left to right in the grid")
