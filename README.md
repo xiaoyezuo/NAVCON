@@ -3,8 +3,17 @@
 ## NAVCON concept annotations 
 - NAVCON contains annotations of instructions taken from the following two [VLN datasets](https://github.com/jacobkrantz/VLN-CE): a) [R2R VLNCE](https://bringmeaspoon.org/): Room-to-Room Vision and Language Navigation in Continuous Environments and b) [RXR VLNCE](https://ai.google.com/research/rxr/): Room-Across-Room Vision and Language Navigation in Continuous Environments.
 - We leverage the Train data splits from these two publicly available VLN datasets to extract 30,815 (19,996 from RXR and 10,819 from R2R) English language instructions to release 236,316 concept instantiations.
-- At this location (s3://navcondata/concept_instances/) you can download three files: ```RXR_R2R_meta_data.txt```, ```RXR_meta_data.txt```, and ```rxr_mapping.txt``` together as a compressed archive file.
-  - The ```RXR_R2R_meta_data.txt``` dataset is a json of the following structure:
+- By typing the following command in your terminal you can download three files: ```root_verbs_final.csv```,```RXR_R2R_meta_data.txt```, ```RXR_meta_data.txt```, and ```rxr_mapping.txt``` together as a compressed archive file.
+  
+  **Command:** ```aws s3 sync s3://navcondata/concept_instances/ <local_destination>```
+
+  Details on the three files are as follows:
+
+  
+1. ```root_verbs_final.csv``` is the dataset containing all 80 Root Verbs that were manually annotated by the authors to assign unambiguous concepts. 
+
+
+2. The ```RXR_R2R_meta_data.txt``` dataset is a json of the following structure:
     - It has four main elements: ```"sentence"```, ```"final_phrase"```, ```"final_concept"```, ```"meta_dict"```. All of these are list of 30,815 items.
     - ```"sentence"```: List of 30,815 RXR and R2R instructions
     - ```"final_phrase"```: List of 30,815 lists. Each list contains concept phrases from the respective instruction.
@@ -20,17 +29,23 @@
       - ```"concept_idx"```: List of indices of concept words split at white-space
       - ```"remaining_words"```: List of remaining words split at white-space
       - ```"remaining_idx"```: List of pairs of (start and stop) word indices of the remaining words
-  - The ```RXR_meta_data.txt``` dataset is a json with same elements as above with 2 more keys in the ```"meta_dict"``` dictionary since these timestamps were not available for R2R dataset:
+     
+        
+3. The ```RXR_meta_data.txt``` dataset is a json with same elements as above with 2 more keys in the ```"meta_dict"``` dictionary since these timestamps were not available for R2R dataset:
       - ```"timestamp"```: List of (Token/Phrase - Timestamp) mapping taken directly from RXR Training data split
       - ```"concept_timestamp"```: List of dictionary of concept-timestamp mapping
         -```concept```: List of concepts
         -```start```:List of starting timestamps for the respective concepts
         -```end```:List of ending timestamps for the respective concepts
-   - The ```rxr_mapping.txt``` dataset is a json with the following keys:
+
+        
+4. The ```rxr_mapping.txt``` dataset is a json with the following keys:
       - ```"general_idx"```: List of 19996 indices representing the items highlighted in ```RXR_meta_data.txt``` above.
       - ```"instruction_id"```: List of corresponding **Instruction ID** from RXR video dataset. This mapping was used to tie the ```RXR_meta_data.txt``` dataset with **NAVCON concept-video clips dataset** described in the end of this document.
 
+
 Following is the structure of the JSON:
+
         
 ```JSON
 {
@@ -275,6 +290,42 @@ Following is the structure of the JSON:
 ## Training data for training Navigation Concept Classifier (NCC) using the 236,616 instantiations described above:
 - To further evaluate the quality and usefulness of the annotations in NAVCON, we trained a model which identifies navigation concepts and the phrases that realize them.
 - We have created a pickle file (s3://navcondata/BERT_training_data/) of a TOKEN-TAG format dataframe that can be directly used to fine-tuned a light-weight general purpose language representation model, [distilbert-base-uncased](https://huggingface.co/distilbert-base-uncased)
+
+- **Command:** ```aws s3 sync s3://navcondata/BERT_training_data/ <local_destination>```
+
+## The trained Navigation Concept Classifier (NCC):
+- Fine-tuned NCC on NAVCON can be found here: (s3://navcondata/concept_classifier/) and can be loaded directly using ```transformers``` python library
+- You may choose to load the fine-tuned NCC in the following manner:
+- - **Command:** ```aws s3 sync s3://navcondata/concept_classifier/ <local_destination>```
+  
+  ```python
+  from transformers import AutoTokenizer
+  from transformers import AutoModelForTokenClassification
+  import pandas as pd
+  import torch
+  
+  model_path = './path/to/local/navcon/'
+
+  def get_label_dict(root_verbs):
+    label_ = [['B-' + i, 'I-' + i] for i in root_verbs['TAG'].unique()]
+    label_ = [k for j in label_ for k in j]
+
+    label_dict = {}
+    label_dict['O'] = 0
+    for i in range(len(label_)):
+        label_dict[label_[i]] = i + 1
+
+    label_ = ['O'] + label_
+    return label_, label_dict
+
+  root_verbs = pd.read_csv('./path/to/local/root_verbs_final.csv')
+  root_verbs['CONCEPT'] = root_verbs['CONCEPT'].str.lower()
+  root_verbs = root_verbs[['CONCEPT','TAG']].drop_duplicates()
+  label_list, label_dict = get_label_dict(root_verbs)
+  
+  tokenizer = AutoTokenizer.from_pretrained(model_path)
+  model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=len(label_list))
+  ```
 
 ## NAVCON Concept-video Clips
 
