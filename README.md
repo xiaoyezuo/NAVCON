@@ -331,14 +331,40 @@ Following is the structure of the JSON:
 
 - The concept-video clips dataset (```Hidden during review phase.```) contains sequential image frames corresponding to each concept for 19074 RXR instructions.
 - Specifically, the top-level folders inside rxr_clips are named after instruction ids in the RXR dataset.
-- Inside each instruction's folder, each concept identified in the instruction has a subfoler of corresponding images in chronological order. For example, folder 000000 contains the concept-video clips for instruction 000000 and the subfoler 0 contains clips for the first concept identified in this instruction.
+- Inside each instruction's folder, each concept identified in the instruction has a subfoler of corresponding images in chronological order. For example, folder 000000 contains the concept-video clips for instruction 0 and the subfoler 0 contains clips for the first concept identified in this instruction.
 - The dataset is hosted on AWS S3 and can be [accessed](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html) through the S3 URL (```Hidden during review phase.```). To download the dataset to your local destination, [install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) AWS CLI and run the following command:     
 
 ```
 Hidden during review phase.
 ```
+- The `concept_clip.json` file contains concepts and phrases for all RXR instructions. Once you have downloaded the concept-video clip dataset, you may go through the instruction folders in the `concept_clip.json` file to extract concept-clip pairs. An example entry for instruction 0 looks like this:
 
-Once you have downloaded the concept-video clip dataset, you may go through the instruction folders and use the ```JSON``` file to extract concept-clip pairs. A sample output has been presented below:
+``` JSON
+"0": {
+        "0": {
+            "concept": "situate",
+            "phrase": "standing in front of a glass door"
+        },
+        "1": {
+            "concept": "change direction",
+            "phrase": "Turn around"
+        },
+        "2": {
+            "concept": "situate",
+            "phrase": "see a doorway to the washroom"
+        },
+        "3": {
+            "concept": "move",
+            "phrase": "Walk towards the doorway and inside the washroom"
+        },
+        "4": {
+            "concept": "situate",
+            "phrase": "stand in between the sink and the bathtub"
+        }
+    }
+```
+
+A sample output has been presented below:
 
 *Now you can see an opened door in front of you.
 Exit the room through that opened door and turn
