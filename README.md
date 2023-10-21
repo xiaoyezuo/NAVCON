@@ -34,9 +34,9 @@
 3. The ```RXR_meta_data.txt``` dataset is a json with same elements as above with 2 more keys in the ```"meta_dict"``` dictionary since these timestamps were not available for R2R dataset:
       - ```"timestamp"```: List of (Token/Phrase - Timestamp) mapping taken directly from RXR Training data split
       - ```"concept_timestamp"```: List of dictionary of concept-timestamp mapping
-        -```concept```: List of concepts
-        -```start```:List of starting timestamps for the respective concepts
-        -```end```:List of ending timestamps for the respective concepts
+        - ```concept```: List of concepts
+        - ```start```:List of starting timestamps for the respective concepts
+        - ```end```:List of ending timestamps for the respective concepts
 
         
 4. The ```rxr_mapping.txt``` dataset is a json with the following keys:
