@@ -337,8 +337,33 @@ Following is the structure of the JSON:
 ```
 Hidden during review phase.
 ```
+- The `concept_clip.json` file contains concepts and phrases for all RXR instructions. Once you have downloaded the concept-video clip dataset, you may go through the instruction folders in the `concept_clip.json` file to extract concept-clip pairs. An example entry for instruction 0 looks like this:
 
-Once you have downloaded the concept-video clip dataset, you may go through the instruction folders and use the ```JSON``` file to extract concept-clip pairs. A sample output has been presented below:
+``` JSON
+"0": {
+        "0": {
+            "concept": "situate",
+            "phrase": "standing in front of a glass door"
+        },
+        "1": {
+            "concept": "change direction",
+            "phrase": "Turn around"
+        },
+        "2": {
+            "concept": "situate",
+            "phrase": "see a doorway to the washroom"
+        },
+        "3": {
+            "concept": "move",
+            "phrase": "Walk towards the doorway and inside the washroom"
+        },
+        "4": {
+            "concept": "situate",
+            "phrase": "stand in between the sink and the bathtub"
+        }
+    }
+```
+
 
 *Now you can see an opened door in front of you.
 Exit the room through that opened door and turn
