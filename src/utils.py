@@ -28,3 +28,7 @@ def extract_camera_params(extrinsic_matrices):
         positions[i],rotations[i] = extract_one_camera_param(extrinsic_matrices[i])
     return positions, rotations
 
+
+
+
+
