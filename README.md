@@ -1,5 +1,7 @@
 # Introducing NAVCON: A Large Scale Cognitively Inspired and Linguistically Grounded Corpus for Vision-Language Navigation
 
+## Environment Setup
+- NAVCON uses Habitat-Sim v0.1.7. Set up the environment following the instruction [here](https://github.com/facebookresearch/habitat-sim/blob/v0.1.7/BUILD_FROM_SOURCE.md)
 ## NAVCON concept annotations 
 - NAVCON contains annotations of instructions taken from the following two [VLN datasets](https://github.com/jacobkrantz/VLN-CE): a) [R2R VLNCE](https://bringmeaspoon.org/): Room-to-Room Vision and Language Navigation in Continuous Environments and b) [RxR VLNCE](https://ai.google.com/research/rxr/): Room-Across-Room Vision and Language Navigation in Continuous Environments.
 - We leverage the Train data splits from these two publicly available VLN datasets to extract 30,815 (19,996 from RxR and 10,819 from R2R) English language instructions to release 236,316 concept instantiations.
